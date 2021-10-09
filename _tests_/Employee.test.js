@@ -10,7 +10,7 @@ test('creates Employee object', () => {
 
 test('name', () => {
   const name = 'Dave';
-  const employee = new Employee(name);
+  const employee = new Employee(name, 397, 'dave@email.com');
   expect(employee.name).toBe(name);
 });
 
@@ -22,7 +22,7 @@ test('id', () => {
 
 test('email', () => {
   const email = 'dave@email.com';
-  const employee = new Employee('Dave', 1, email);
+  const employee = new Employee('Dave', 397, email);
   expect(employee.getEmail()).toBe(email);
 });
 
