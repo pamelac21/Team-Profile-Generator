@@ -1,0 +1,22 @@
+{
+  "name": "profile-generator",
+  "version": "1.0.0",
+  "description": "team profile generator",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Profile-Generator"
+  },
+  "author": "Pamela Cleveland",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.2.5"
+  }
+}
