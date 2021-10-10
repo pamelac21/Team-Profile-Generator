@@ -6,7 +6,7 @@ test('creates Manager object', () => {
     expect(manager.name).toEqual(expect.any(String));
     expect(manager.id).toEqual(expect.any(Number));
     expect(manager.email).toEqual(expect.any(String));
-    expect(engineer.officeNumber).toEqual(expect.any(Number));
+    expect(manager.officeNumber).toEqual(expect.any(Number));
   });
   
   test('name', () => {
@@ -29,7 +29,7 @@ test('creates Manager object', () => {
   
   test('officeNumber', () => {
     const officeNumber = 555-555-5555;
-    const intern = new Intern('Dave', 333, 'dave@email.com', officeNumber);
+    const intern = new Manager('Dave', 333, 'dave@email.com', officeNumber);
     expect(intern.officeNumber).toEqual(officeNumber);
   });
 

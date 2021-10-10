@@ -23,14 +23,14 @@ test('creates Engineer object', () => {
   
   test('email', () => {
     const email = 'dave@email.com';
-    const employee = new Employee('Dave', 333, email, 'pamelac21');
+    const employee = new Engineer('Dave', 333, email, 'pamelac21');
     expect(employee.getEmail()).toEqual(email);
   });
 
   test('github', () => {
     const github = 'pamelac21';
     const engineer = new Engineer('Dave', 333, 'dave@email.com', github);
-    expect(engineer.geGitHub()).toEqual(github);
+    expect(engineer.getGitHub()).toEqual(github);
   });
   
   test('role', () => {
