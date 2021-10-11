@@ -1,3 +1,4 @@
 # Team-Profile-Generator
 
-Incomplete at this time
+## Tests
+(https://watch.screencastify.com/v/kqxSYaN4YUbVwr5ivKCv)
