@@ -1,16 +1,20 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-//const generateHTML = require("./src/generateHTML");
+const generateHTML = require("./src/generateHTML");
 const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-
+const path = require("path");
+const { assertEnumDefaultedMember } = require("@babel/types");
+const output = path.resolve(__dirname, "lib");
+const outputPath = path.join(output, "generatedTeam.html");
 
 let engineer = [];
 let intern = [];
 let manager = [];
 let employees = { manager, engineer, intern };
+let team = []
 
 async function Prompt() {
     const { role } = await inquirer.prompt(
@@ -36,6 +40,7 @@ async function Prompt() {
                 message: "Employee's role?",
                 choices: ["Manager", "Engineer", "Intern"],
             },
+
         ]);
     if (role === "Manager") {
         return inquirer
@@ -44,13 +49,20 @@ async function Prompt() {
                     type: "input",
                     name: "officeNumber",
                     message: "Manager's office number?"
-                }
+                },
+                {
+                    type: "list",
+                    name: "addMember",
+                    message: "Add another team member?",
+                    choices: ["Yes", "No"]
+                } 
             ])
-            .then(({officeNumber, anotherEntry}) => {
-                manager.push(new Manager(employee, id, email, officeNumber))
-                 console.log(employees)
-                if (anotherEntry) {
-                    return Prompt();
+            .then((response) => {
+                manager.push(new Manager(response.name, response.id, response.email, response.officeNumber))
+                if (response.addMember === "Yes") {
+                    return Prompt()
+                } else {
+                    generateHTML()
                 }
             })
 
@@ -61,8 +73,23 @@ async function Prompt() {
                     type: "input",
                     name: "github",
                     message: "Github username?"
+                },
+                {
+                    type: "list",
+                    name: "addMember",
+                    message: "Add another team member?",
+                    choices: ["Yes", "No"]
+                } 
+            ])
+            .then((response) => {
+                engineer.push(new Engineer(response.name, response.id, response.email, response.github))
+                if (response.addMember === "Yes") {
+                    return Prompt()
+                } else {
+                    generateHTML()
                 }
-            ]);
+                })
+            
 
     } else if (role === 'Intern') {
         return inquirer
@@ -71,17 +98,39 @@ async function Prompt() {
                     type: "input",
                     name: "school",
                     message: "Intern's school?"
+                },
+                {
+                    type: "list",
+                    name: "addMember",
+                    message: "Add another team member?",
+                    choices: ["Yes", "No"]
+                }    
+            ])
+            .then((response) => {
+                intern.push(new Intern(response.name, response.id, response.email, response.school))
+                if (response.addMember === "Yes") {
+                    return Prompt()
+                } else {
+                    generateHTML()
                 }
-            ]);
-    }
+               
+    })
+}  
+
 }
 Prompt()
 
-.then(data => {
-    return generateHTML(employees)
-})
-.then(pageHTML => {
-    return writeFile(pageHTML)
-})
+function generateHtml() {
+    var page = render(employees);
+
+    if (!fs.existsSync(output)) {
+        fs.mkdirSync(output);
+    }
+    //create the file html
+    fs.writeFile(outputPath, page, function (err) {
+        if (err) throw err;
+    });
+}
+
 
 
