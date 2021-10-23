@@ -29,13 +29,17 @@ Use [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [I
 node index.js
 
 ## Generated HTML
-![ss-prof-gen](https://user-images.githubusercontent.com/87335354/138540130-53d391a4-37ac-4d02-aa9c-71b43d794ea2.png)
+![ProfGen-HTML (1)](https://user-images.githubusercontent.com/87335354/138543085-6875b83e-33aa-4ad3-a03c-336d5bf47830.gif)
+
+Full video --> https://watch.screencastify.com/v/RW5763ievR5RubLSqbcp
 
 ## Functionality
-https://watch.screencastify.com/v/EUTDBLFmfF1KKOds4dE0
+Full video --> https://watch.screencastify.com/v/EUTDBLFmfF1KKOds4dE0
 
 ## Tests
-https://watch.screencastify.com/v/kqxSYaN4YUbVwr5ivKCv
+![Passing Tests ProfGen](https://user-images.githubusercontent.com/87335354/138543306-689da2e2-4b6e-4f17-8578-d378f0be41ba.gif)
+
+Full video --> https://watch.screencastify.com/v/kqxSYaN4YUbVwr5ivKCv
 
 ## Contact
 [Email](pamelac021@gmail.com)
