@@ -34,10 +34,12 @@ node index.js
 Full video --> https://watch.screencastify.com/v/RW5763ievR5RubLSqbcp
 
 ## Functionality
-https://watch.screencastify.com/v/EUTDBLFmfF1KKOds4dE0
+Full video --> https://watch.screencastify.com/v/EUTDBLFmfF1KKOds4dE0
 
 ## Tests
-https://watch.screencastify.com/v/kqxSYaN4YUbVwr5ivKCv
+![Passing Tests ProfGen](https://user-images.githubusercontent.com/87335354/138543306-689da2e2-4b6e-4f17-8578-d378f0be41ba.gif)
+
+Full video --> https://watch.screencastify.com/v/kqxSYaN4YUbVwr5ivKCv
 
 ## Contact
 [Email](pamelac021@gmail.com)
