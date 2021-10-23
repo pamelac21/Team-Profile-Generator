@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require("fs"); 
 const inquirer = require("inquirer");
 const {generateHTML, generateManager, generateEngineer, generateIntern} = require("./src/main");
 //const Employee = require("./lib/Employee");
