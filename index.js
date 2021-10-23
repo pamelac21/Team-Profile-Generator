@@ -1,23 +1,20 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const generateHTML = require("./src/generateHTML");
-const Employee = require("./lib/Employee");
+const {generateHTML, generateManager, generateEngineer, generateIntern} = require("./src/main");
+//const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 const path = require("path");
-const { assertEnumDefaultedMember } = require("@babel/types");
-const output = path.resolve(__dirname, "lib");
-const outputPath = path.join(output, "generatedTeam.html");
+const output = path.resolve(__dirname, "dist");
+//const outputPath = path.join(output, "generatedTeam.html");
 
-let engineer = [];
-let intern = [];
-let manager = [];
-let employees = { manager, engineer, intern };
-let team = []
+
+
+let team = ''
 
 async function Prompt() {
-    const { role } = await inquirer.prompt(
+    const { role, name, id,email } = await inquirer.prompt(
         [
             {
                 type: "input",
@@ -58,11 +55,12 @@ async function Prompt() {
                 } 
             ])
             .then((response) => {
-                manager.push(new Manager(response.name, response.id, response.email, response.officeNumber))
+                let newManager = new Manager(name, id, email, response.officeNumber);
+                let managerHTML = generateManager(newManager);
+                team = team + managerHTML;
+
                 if (response.addMember === "Yes") {
                     return Prompt()
-                } else {
-                    generateHTML()
                 }
             })
 
@@ -82,11 +80,11 @@ async function Prompt() {
                 } 
             ])
             .then((response) => {
-                engineer.push(new Engineer(response.name, response.id, response.email, response.github))
+                let newEngineer = new Engineer(name, id, email, response.github);
+                let engineerHTML = generateEngineer(newEngineer);
+                team = team + engineerHTML;
                 if (response.addMember === "Yes") {
                     return Prompt()
-                } else {
-                    generateHTML()
                 }
                 })
             
@@ -107,30 +105,33 @@ async function Prompt() {
                 }    
             ])
             .then((response) => {
-                intern.push(new Intern(response.name, response.id, response.email, response.school))
+                let newIntern = new Intern(name, id, email, response.school);
+                let internHTML = generateIntern(newIntern);
+                team = team + internHTML;
                 if (response.addMember === "Yes") {
                     return Prompt()
-                } else {
-                    generateHTML()
                 }
                
     })
 }  
 
 }
+
+
+function writeToFile(data) {
+    let content = generateHTML(data);
+    let fileName = './dist/generatedTeam.html';
+    fs.writeFile(fileName, content, function (err) {
+        if(err){
+            console.log(err)
+        }else{
+            console.log('success')
+    }});
+
+}
 Prompt()
 
-function generateHtml() {
-    var page = render(employees);
-
-    if (!fs.existsSync(output)) {
-        fs.mkdirSync(output);
-    }
-    //create the file html
-    fs.writeFile(outputPath, page, function (err) {
-        if (err) throw err;
-    });
-}
-
-
+.then(function(){
+writeToFile(team)
+})
 

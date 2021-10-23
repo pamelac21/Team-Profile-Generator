@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: rgb(7, 108, 209);
+  --secondary: white;
+}
+
+body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.jumbotron {
+  background-color: lightseagreen;
+}
+
+
+.card-header {
+  background-color: rgb(102, 3, 148);
+  color: var(--secondary);
+}
+
+h2, h3 {
+  text-align: center;
+}
+
+.card-body {
+  background-color: var(--secondary);
+  color: var(--primary);
+}
+
+.container {
+  margin: 100px auto;
+  justify-content: space-between;
+  display: flex;
+}
+
+.team-area {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
