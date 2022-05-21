@@ -5,7 +5,7 @@ Build a Node.js command-line application that takes in information about employe
 ## Table of Contents
 
 - [Installation](#getting-started)
-- [Usage](##functionality)
+- [Usage](#functionality)
 - [Demo](#demo)
 - [Tech Used](#tech-used)
 - [Contact](#contributing)
