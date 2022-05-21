@@ -2,6 +2,16 @@
 
 Build a Node.js command-line application that takes in information about employees on a software engineering team and generates an HTML webpage that displays summaries for each person.
 
+## Table of Contents
+
+- [Installation](#getting-started)
+- [Usage](##functionality)
+- [Demo](#demo)
+- [Tech Used](#tech-used)
+- [Contact](#contributing)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Acceptance Criteria
 
 GIVEN a command-line application that accepts user input
@@ -28,20 +38,34 @@ Use [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [I
 
 node index.js
 
-## Generated HTML
+## Demo
+### Generated HTML
 ![ProfGen-HTML (1)](https://user-images.githubusercontent.com/87335354/138543085-6875b83e-33aa-4ad3-a03c-336d5bf47830.gif)
 
 Full video --> https://watch.screencastify.com/v/RW5763ievR5RubLSqbcp
 
-## Functionality
+### Functionality
 Full video --> https://watch.screencastify.com/v/EUTDBLFmfF1KKOds4dE0
 
-## Tests
+### Tests
 ![Passing Tests ProfGen](https://user-images.githubusercontent.com/87335354/138543306-689da2e2-4b6e-4f17-8578-d378f0be41ba.gif)
 
 Full video --> https://watch.screencastify.com/v/kqxSYaN4YUbVwr5ivKCv
 
-## Contact
+## Tech Used
+- HTML
+- CSS
+- JavaScript
+- Node
+- Jest
+- Inquirer
+
+## Contributing
 [Email](pamelac021@gmail.com)
 
 [github](github.com/pamelac21)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
